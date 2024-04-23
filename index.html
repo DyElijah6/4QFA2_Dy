@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(175, 229, 175);">
+
+    <h1 style="color: green;">Generate a Multiplication table</h1>
+    <label style="color: green;" for="start">Start Value:</label>
+    <input type="number" id="value1">
+    <label style="color: green" for="end">End Value:</label>
+    <input type="number" id="value2">
+    <button  style="color: green; background-color: rgb(188, 243, 188); border-color: rgb(175, 229, 175);" 
+    onclick="showTable()">Generate Table</button>
+
+
+
+    <table id="multiplicationTable" border="1"></table>
+
+    <script>
+        function showTable() {
+            var value1 = parseInt(document.getElementById("value1").value);
+            var value2 = parseInt(document.getElementById("value2").value);
+            var table = document.getElementById("multiplicationTable");
+
+            if (value1 < 2 || value1 > 10 || value2 < 2 || value2 > 10) {
+                alert("Please enter numbers between 2 and 10");
+                return;
+            }
+
+            table.innerHTML = '';
+
+            for (var y = 1; y <= value1; y++) {
+                var rows = table.insertRow();
+                for (var k = 1; k <= value2; k++) {
+                    var x = rows.insertCell();
+                    x.innerText = y * k;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
